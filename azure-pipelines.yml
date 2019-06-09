@@ -27,7 +27,7 @@ steps:
 - task: CopyFiles@2
   inputs:
     #sourceFolder: # Optional
-    contents: '**' 
+    contents: '**/$(Build.ArtifactStagingDirectory)/dist.*' 
     targetFolder: $(Build.ArtifactStagingDirectory)
     #cleanTargetFolder: false # Optional
     #overWrite: false # Optional
