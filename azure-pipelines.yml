@@ -27,8 +27,8 @@ steps:
 - task: CopyFiles@2
   inputs:
     #sourceFolder: # Optional
-    #contents: '**' 
-    targetFolder: $(Build.SourcesDirectory)
+    contents: '**' 
+    targetFolder: $(Build.ArtifactStagingDirectory)
     #cleanTargetFolder: false # Optional
     #overWrite: false # Optional
     #flattenFolders: false # Optional
