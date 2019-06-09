@@ -27,7 +27,6 @@ steps:
 - task: CopyFiles@2
   inputs:
     #sourceFolder: # Optional
-    contents: '**/$(Build.ArtifactStagingDirectory)/dist.*' 
     targetFolder: $(Build.ArtifactStagingDirectory)
     #cleanTargetFolder: false # Optional
     #overWrite: false # Optional
@@ -35,5 +34,5 @@ steps:
   
 - task: PublishBuildArtifacts@1
   inputs:
-    pathtoPublish: '$(Build.ArtifactStagingDirectory)' 
+    pathtoPublish: '$(Build.ArtifactStagingDirectory)\dist' 
     artifactName: 'drop' 
