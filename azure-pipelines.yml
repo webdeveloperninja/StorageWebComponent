@@ -18,9 +18,15 @@ steps:
 - script: |
     npm install -g @angular/cli
     npm install
+  displayName: 'npm install'
+
+- script: |
     npm run build
+  displayName: 'build application'
+
+- script: |
     npm run package
-  displayName: 'npm install and build'
+  displayName: 'package application'
 
 # Copy Files
 # Copy files from source folder to target folder using match patterns (The match patterns will only match file paths, not folder paths)
@@ -34,5 +40,5 @@ steps:
   
 - task: PublishBuildArtifacts@1
   inputs:
-    pathtoPublish: '$(Build.ArtifactStagingDirectory)/elements.js.gz' 
+    pathtoPublish: '$(Build.ArtifactStagingDirectory)' 
     artifactName: 'drop' 
