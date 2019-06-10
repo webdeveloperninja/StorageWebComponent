@@ -24,13 +24,11 @@ steps:
   inputs:
     command: custom
     customCommand: run build
-    workingDir:  $(Build.ArtifactStagingDirectory)
 
 - task: Npm@1
   inputs:
     command: custom
     customCommand: run package
-    workingDir:  $(Build.ArtifactStagingDirectory)
   
 - task: ExtractFiles@1
   inputs:
