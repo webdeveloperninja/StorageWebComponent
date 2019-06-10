@@ -23,13 +23,13 @@ steps:
 - task: Npm@1
   inputs:
     command: custom
-    customCommand: npm run build
+    customCommand: run build
     workingDir:  $(Build.ArtifactStagingDirectory)
 
 - task: Npm@1
   inputs:
     command: custom
-    customCommand: npm run package
+    customCommand: run package
     workingDir:  $(Build.ArtifactStagingDirectory)
   
 - task: ExtractFiles@1
