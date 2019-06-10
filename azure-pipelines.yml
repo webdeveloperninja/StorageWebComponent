@@ -27,16 +27,14 @@ steps:
 - script: |
     npm run package
   displayName: 'package application'
-
-# Copy Files
-# Copy files from source folder to target folder using match patterns (The match patterns will only match file paths, not folder paths)
-- task: CopyFiles@2
+  
+- task: ExtractFiles@1
   inputs:
-    #sourceFolder: # Optional
-    targetFolder: $(Build.ArtifactStagingDirectory)
-    #cleanTargetFolder: false # Optional
-    #overWrite: false # Optional
-    #flattenFolders: false # Optional
+    #archiveFilePatterns: '*.zip' 
+    destinationFolder: $(Build.ArtifactStagingDirectory)
+    #cleanDestinationFolder: true 
+  displayName: 'extract gzip'
+
   
 - task: PublishBuildArtifacts@1
   inputs:
