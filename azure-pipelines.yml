@@ -34,5 +34,5 @@ steps:
   
 - task: PublishBuildArtifacts@1
   inputs:
-    pathtoPublish: '$(Build.ArtifactStagingDirectory)/elements.js.gz' 
+    pathtoPublish: '$(Build.ArtifactStagingDirectory)/elements.js' 
     artifactName: 'drop' 
