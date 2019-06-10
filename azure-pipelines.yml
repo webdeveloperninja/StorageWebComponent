@@ -20,13 +20,17 @@ steps:
     npm install
   displayName: 'npm install'
 
-- script: |
-    npm run build
-  displayName: 'build application'
+- task: Npm@1
+  inputs:
+    command: custom
+    customCommand: npm run build
+    workingDir:  $(Build.ArtifactStagingDirectory)
 
-- script: |
-    npm run package
-  displayName: 'package application'
+- task: Npm@1
+  inputs:
+    command: custom
+    customCommand: npm run package
+    workingDir:  $(Build.ArtifactStagingDirectory)
   
 - task: ExtractFiles@1
   inputs:
