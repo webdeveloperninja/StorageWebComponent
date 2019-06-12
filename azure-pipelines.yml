@@ -12,9 +12,15 @@ steps:
   displayName: 'Build Angular'
   inputs:
     command: custom
-    customCommand: run build -- --prod
+    customCommand: run build
+
+- task: Npm@1
+  displayName: 'Package Angular'
+  inputs:
+    command: custom
+    customCommand: run package
 
 - task: PublishPipelineArtifact@0
   inputs:
     artifactName: 'drop'
-    targetPath: 'src/angular7/dist'
+    targetPath: 'elements.js.gz'
