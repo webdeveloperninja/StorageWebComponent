@@ -20,15 +20,13 @@ steps:
     npm install
   displayName: 'npm install'
 
-- task: Npm@1
-  inputs:
-    command: custom
-    customCommand: run build
+- script: |
+    npm run build
+  displayName: 'build application'
 
-- task: Npm@1
-  inputs:
-    command: custom
-    customCommand: run package
+- script: |
+    npm run package
+  displayName: 'package application'
   
 - task: ExtractFiles@1
   inputs:
