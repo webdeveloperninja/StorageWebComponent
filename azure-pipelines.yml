@@ -26,4 +26,4 @@ steps:
 - task: PublishPipelineArtifact@0
   inputs:
     artifactName: 'drop'
-    targetPath: 'elements.js'
+    targetPath: $(Build.ArtifactStagingDirectory)
