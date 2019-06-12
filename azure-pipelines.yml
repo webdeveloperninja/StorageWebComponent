@@ -25,7 +25,6 @@ steps:
 - script: |
     npm run build
   displayName: 'build application'
-  workingDirectory: $(Build.ArtifactStagingDirectory)
 
 - script: |
     npm run package
