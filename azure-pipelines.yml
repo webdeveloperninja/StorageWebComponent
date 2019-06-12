@@ -1,6 +1,9 @@
 variables:
   buildConfiguration: 'Release'
 
+pool:
+  vmImage: 'ubuntu-latest'
+
 steps:
 
 - task: Npm@1
@@ -23,4 +26,4 @@ steps:
 - task: PublishPipelineArtifact@0
   inputs:
     artifactName: 'drop'
-    targetPath: 'elements.js.gz'
+    targetPath: 'elements.js'
