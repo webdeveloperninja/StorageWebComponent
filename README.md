@@ -1,3 +1,5 @@
+[https://webstoragecomponent.z22.web.core.windows.net/shell.html](https://webstoragecomponent.z22.web.core.windows.net/shell.html)
+[https://webstoragecomponent.z22.web.core.windows.net/elements.js](https://webstoragecomponent.z22.web.core.windows.net/elements.js)
 # AzureBlobStorage
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.0.5.
