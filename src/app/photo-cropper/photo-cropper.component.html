@@ -1,0 +1,14 @@
+<div class="photo-cropper-wrapper">
+  <button mat-raised-button (click)="save()" [disabled]="isLoading" color="primary">Save</button>
+  <div fxLayout="row" fxLayout.xs="column">
+    <div fxFlex="1 1 50%">
+      <image-cropper [imageChangedEvent]="data.image" [maintainAspectRatio]="true" [aspectRatio]="4 / 3" format="jpeg"
+        (imageCropped)="imageCropped($event)" (imageLoaded)="imageLoaded()" (cropperReady)="cropperReady()"
+        (loadImageFailed)="loadImageFailed()"></image-cropper>
+    </div>
+    <div fxFlex="1 1 50%">
+      <img *ngIf="croppedImage" [src]="croppedImage" />
+    </div>
+  </div>
+  <mat-spinner *ngIf="isLoading"></mat-spinner>
+</div>

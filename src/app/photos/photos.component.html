@@ -1,0 +1,25 @@
+<div class="photos-component" fxLayout="column" fxLayoutGap="2rem">
+  <div class="file-upload">
+    <div class="file-select">
+      <div class="file-select-button" id="fileName">Choose Photo</div>
+      <div class="file-select-name" id="noFile">No file chosen...</div>
+      <input type="file" name="chooseFile" id="chooseFile" (change)="fileUploadEvent($event)">
+    </div>
+  </div>
+  <div [hidden]="(images$ | async).length !== 0" fxLayout="column" fxLayoutGap="2rem">
+    <div class="text-center">
+      <img class="empty-image" src="assets/phone.jpeg">
+    </div>
+    <div>
+      <p class="mat-headline text-center">No photos yet - Upload your setup images!</p>
+    </div>
+  </div>
+  <div fxLayout="row wrap" fxLayout.xs="column" fxLayoutGap="1rem">
+    <mat-card *ngFor="let image of images$ | async" fxFlex="31%" fxFlex.xs="100%">
+      <img class="image" [src]="image">
+      <mat-card-actions>
+        <button mat-raised-button (click)="deleteImage(image)" color="primary">Delete</button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+</div>
