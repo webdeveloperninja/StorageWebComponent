@@ -32,6 +32,7 @@ export class PhotoCropperComponent implements OnInit {
   save() {
     this.isLoading = true;
     const Base64Data = this.croppedImage.base64.split(',')[1];
+    // Todo pull from inputs
     this._httpClient
       .post('https://ninjawebstorage.azurewebsites.net/api/Storage?code=U0ijSLnySRppyW4j62PaaNRSTEaFMyoRbP7aH9YN0LaldI4QRDXzig==', {
         ContentType: 'image/jpeg',
