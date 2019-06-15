@@ -6,9 +6,6 @@
         (imageCropped)="imageCropped($event)" (imageLoaded)="imageLoaded()" (cropperReady)="cropperReady()"
         (loadImageFailed)="loadImageFailed()"></image-cropper>
     </div>
-    <div fxFlex="1 1 50%">
-      <img *ngIf="croppedImage" [src]="croppedImage" />
-    </div>
   </div>
   <mat-spinner *ngIf="isLoading"></mat-spinner>
 </div>
