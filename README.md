@@ -2,7 +2,7 @@
 ### Add script tag to the head of your html document. 
   ```<script src="https://webstoragecomponent.z22.web.core.windows.net/elements.js"></script>```
 ### Add blob component with inputs `container-name` and `content-type`
-  ```<blob-storage container-name="mysetupsheet" content-type="image/jpeg"></blob-storage>
+  ```<blob-storage container-name="mysetupsheet" content-type="image/jpeg"></blob-storage>```
 
 ## Shell
 [https://webstoragecomponent.z22.web.core.windows.net/shell.html](https://webstoragecomponent.z22.web.core.windows.net/shell.html)
