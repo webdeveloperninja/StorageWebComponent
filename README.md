@@ -3,6 +3,11 @@
   ```<script src="https://webstoragecomponent.z22.web.core.windows.net/elements.js"></script>```
 ### Add blob component with inputs `container-name` and `content-type`
   ```<blob-storage container-name="mysetupsheet" content-type="image/jpeg"></blob-storage>```
+### Add a theme
+https://webstoragecomponent.z22.web.core.windows.net/assets/indigo-pink.css
+https://webstoragecomponent.z22.web.core.windows.net/assets/pink-bluegrey.css
+https://webstoragecomponent.z22.web.core.windows.net/assets/purple-green.css
+https://webstoragecomponent.z22.web.core.windows.net/assets/deeppurple-amber.css
 
 ## Shell
 [https://webstoragecomponent.z22.web.core.windows.net/shell.html](https://webstoragecomponent.z22.web.core.windows.net/shell.html)
