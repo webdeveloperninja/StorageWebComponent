@@ -8,6 +8,22 @@
 
 <body>
   <blob-storage container-name="mysetupsheet" content-type="image/jpeg"></blob-storage>
+  <section></section>
+
+  <script>
+    const storageElement = document.querySelector('blob-storage');
+
+    storageElement.addEventListener('dataSaved', data => {
+      const imageUrl = data.detail;
+
+      const image = document.createElement('img');
+      image.src = imageUrl;
+
+      const section = document.querySelector('section');
+      section.appendChild(image);
+    });
+
+  </script>
 </body>
 
 </html>

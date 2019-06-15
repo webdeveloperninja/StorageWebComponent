@@ -1,10 +1,10 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { MatDialog, MatDialogRef } from '@angular/material';
-import { PhotoCropperComponent } from '../photo-cropper/photo-cropper.component';
-import { first, map, filter, withLatestFrom, catchError, takeUntil } from 'rxjs/operators';
-import { ActivatedRoute, Router } from '@angular/router';
-import { Subject, merge, of } from 'rxjs';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { MediaObserver } from '@angular/flex-layout';
+import { MatDialog, MatDialogRef } from '@angular/material';
+import { ActivatedRoute, Router } from '@angular/router';
+import { merge, Subject } from 'rxjs';
+import { first, map } from 'rxjs/operators';
+import { PhotoCropperComponent } from '../photo-cropper/photo-cropper.component';
 
 @Component({
   selector: 'app-photos',
@@ -14,6 +14,7 @@ import { MediaObserver } from '@angular/flex-layout';
 export class PhotosComponent implements OnInit {
   @Input() containerName: string;
   @Input() contentType: string;
+  @Output() dataSaved = new EventEmitter<string>();
 
   refresh$ = new Subject();
 
@@ -48,6 +49,7 @@ export class PhotosComponent implements OnInit {
     });
 
     this.dialogRef.componentInstance.imagesChange.pipe(first()).subscribe(d => {
+      this.dataSaved.next(d[0]);
       this.dialogRef.close();
     });
   }

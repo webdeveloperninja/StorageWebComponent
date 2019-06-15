@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -6,7 +6,13 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
+  @Output() dataSaved = new EventEmitter<string>();
+
   @Input() containerName: string;
   @Input() contentType: string;
   title = 'azure-blob-storage';
+
+  onDataSaved(data) {
+    this.dataSaved.next(data);
+  }
 }
