@@ -13,6 +13,7 @@ import { MediaObserver } from '@angular/flex-layout';
 })
 export class PhotosComponent implements OnInit {
   @Input() containerName: string;
+  @Input() contentType: string;
 
   refresh$ = new Subject();
 
@@ -42,7 +43,9 @@ export class PhotosComponent implements OnInit {
 
   fileUploadEvent(image) {
     this.fileToUpload = image;
-    this.dialogRef = this.dialog.open(PhotoCropperComponent, { data: { image, containerName: this.containerName } });
+    this.dialogRef = this.dialog.open(PhotoCropperComponent, {
+      data: { image, containerName: this.containerName, contentType: this.contentType }
+    });
 
     this.dialogRef.componentInstance.imagesChange.pipe(first()).subscribe(d => {
       this.dialogRef.close();

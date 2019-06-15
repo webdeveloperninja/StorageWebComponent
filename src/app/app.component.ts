@@ -7,5 +7,6 @@ import { Component, Input } from '@angular/core';
 })
 export class AppComponent {
   @Input() containerName: string;
+  @Input() contentType: string;
   title = 'azure-blob-storage';
 }

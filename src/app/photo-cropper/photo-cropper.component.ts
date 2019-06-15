@@ -10,6 +10,7 @@ export interface Data {
   name: string;
   // Todo make cropper dumb pull out logic for storing data
   containerName: string;
+  contentType: string;
 }
 
 @Component({
@@ -39,7 +40,7 @@ export class PhotoCropperComponent implements OnInit {
     // Todo pull from inputs
     this._httpClient
       .post('https://ninjawebstorage.azurewebsites.net/api/Storage?code=U0ijSLnySRppyW4j62PaaNRSTEaFMyoRbP7aH9YN0LaldI4QRDXzig==', {
-        ContentType: 'image/jpeg',
+        ContentType: this.data.contentType,
         ContainerName: this.data.containerName,
         Base64Data: Base64Data
       })

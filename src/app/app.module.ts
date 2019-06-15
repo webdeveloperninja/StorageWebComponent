@@ -38,6 +38,6 @@ export class AppModule implements DoBootstrap {
   ngDoBootstrap() {
     const element = createCustomElement(AppComponent, { injector: this.injector });
 
-    customElements.define('app-test', element);
+    customElements.define('blob-storage', element);
   }
 }
