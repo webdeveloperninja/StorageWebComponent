@@ -1,7 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, Injector, DoBootstrap } from '@angular/core';
 import { createCustomElement } from '@angular/elements';
-import { AppComponent } from './app.component';
 import { PhotosComponent } from './photos/photos.component';
 import { PhotoCropperComponent } from './photo-cropper/photo-cropper.component';
 import { ThemeModule } from './theme.module';
@@ -16,7 +15,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 const routes = [];
 
 @NgModule({
-  declarations: [AppComponent, PhotosComponent, PhotoCropperComponent],
+  declarations: [PhotosComponent, PhotoCropperComponent],
   imports: [
     BrowserModule,
     ThemeModule,
@@ -30,13 +29,13 @@ const routes = [];
     RouterModule.forRoot(routes)
   ],
   providers: [{ provide: APP_BASE_HREF, useValue: '/' }],
-  entryComponents: [AppComponent, PhotoCropperComponent]
+  entryComponents: [PhotosComponent, PhotoCropperComponent]
 })
 export class AppModule implements DoBootstrap {
   constructor(private injector: Injector) {}
 
   ngDoBootstrap() {
-    const element = createCustomElement(AppComponent, { injector: this.injector });
+    const element = createCustomElement(PhotosComponent, { injector: this.injector });
 
     customElements.define('blob-storage', element);
   }
