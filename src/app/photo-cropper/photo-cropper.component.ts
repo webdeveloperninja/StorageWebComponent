@@ -1,4 +1,4 @@
-import { Component, OnInit, Inject, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Inject, Output, EventEmitter, Input } from '@angular/core';
 import { MAT_DIALOG_DATA } from '@angular/material';
 import { HttpClient } from '@angular/common/http';
 import { Router, ActivatedRoute } from '@angular/router';
@@ -8,6 +8,8 @@ import { empty } from 'rxjs';
 export interface Data {
   image: string;
   name: string;
+  // Todo make cropper dumb pull out logic for storing data
+  containerName: string;
 }
 
 @Component({
@@ -16,6 +18,8 @@ export interface Data {
   styleUrls: ['./photo-cropper.component.scss']
 })
 export class PhotoCropperComponent implements OnInit {
+  @Input() containerName: string;
+
   isLoading = false;
   croppedImage: any;
   @Output() imagesChange = new EventEmitter<string[]>();
@@ -36,7 +40,7 @@ export class PhotoCropperComponent implements OnInit {
     this._httpClient
       .post('https://ninjawebstorage.azurewebsites.net/api/Storage?code=U0ijSLnySRppyW4j62PaaNRSTEaFMyoRbP7aH9YN0LaldI4QRDXzig==', {
         ContentType: 'image/jpeg',
-        ContainerName: 'mysetupsheet',
+        ContainerName: this.data.containerName,
         Base64Data: Base64Data
       })
       .pipe(

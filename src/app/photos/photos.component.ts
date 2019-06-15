@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { MatDialog, MatDialogRef } from '@angular/material';
 import { PhotoCropperComponent } from '../photo-cropper/photo-cropper.component';
 import { first, map, filter, withLatestFrom, catchError, takeUntil } from 'rxjs/operators';
@@ -12,6 +12,8 @@ import { MediaObserver } from '@angular/flex-layout';
   styleUrls: ['./photos.component.scss']
 })
 export class PhotosComponent implements OnInit {
+  @Input() containerName: string;
+
   refresh$ = new Subject();
 
   images$ = merge(this.refresh$, this.route.queryParams).pipe(
@@ -40,7 +42,7 @@ export class PhotosComponent implements OnInit {
 
   fileUploadEvent(image) {
     this.fileToUpload = image;
-    this.dialogRef = this.dialog.open(PhotoCropperComponent, { data: { image } });
+    this.dialogRef = this.dialog.open(PhotoCropperComponent, { data: { image, containerName: this.containerName } });
 
     this.dialogRef.componentInstance.imagesChange.pipe(first()).subscribe(d => {
       this.dialogRef.close();
